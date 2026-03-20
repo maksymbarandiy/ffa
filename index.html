@@ -448,11 +448,10 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       <div id="p-notifs" class="dash-subpage">
         <div class="dash-header"><h1>СПОВІЩЕННЯ</h1><p>Всі повідомлення</p></div>
         <div class="dash-card"><h3>Вхідні</h3>
-          <div class="notif-item"><div class="notif-dot"></div><div><strong>Зміна розкладу</strong><p>Тренування 21 березня перенесено на 22 березня 18:00</p><time>2 год тому</time></div></div>
-          <div class="notif-item"><div class="notif-dot"></div><div><strong>Нагадування про оплату</strong><p>Оплата за квітень відкрита з 1 квітня. Сума: 1800 грн.</p><time>1 день тому</time></div></div>
-          <div class="notif-item"><div class="notif-dot"></div><div><strong>Турнір U-12</strong><p>26 березня о 17:00 &mdash; товариська гра проти ФА Галичина.</p><time>2 дні тому</time></div></div>
-          <div class="notif-item"><div class="notif-dot read"></div><div><strong>Молодець!</strong><p>Дмитро відзначився у товариській грі</p><time>3 дні тому</time></div></div>
-        </div>
+            <div id="parent-notifs-list">
+              <div class="notif-item"><div class="notif-dot read"></div><div><strong>Молодець!</strong><p>Дмитро відзначився у товариській грі</p><time>3 дні тому</time></div></div>
+            </div>
+          </div>
       </div>
     </main>
   </div>
@@ -939,6 +938,7 @@ function showSub(id, btn) {
   document.getElementById(id).classList.add('active');
   if (btn) { btn.closest('aside').querySelectorAll('.sidebar-item').forEach(function(b){b.classList.remove('active');}); btn.classList.add('active'); }
   if (id === 'a-trials') renderTrialsTable();
+  if (id === 'p-notifs') { renderParentNotifs(); }
   if (id === 'a-players') renderPlayers();
   if (id === 'a-coaches') renderCoaches();
   if (id === 'a-groups') renderAdminGroups();
@@ -1205,6 +1205,12 @@ function sendNotif() {
   var now = new Date(); var date = now.toLocaleString('uk-UA');
   notifs.push({to:to, title:title, text:text, date:date});
   setData('ffa_notifs_sent', notifs);
+
+  // Зберегти у батьківські сповіщення
+  var parentNotifs = getData('ffa_parent_notifs', []);
+  parentNotifs.unshift({title:title, text:text, date:date, to:to, read:false});
+  setData('ffa_parent_notifs', parentNotifs);
+
   document.getElementById('notif-title').value=''; document.getElementById('notif-text').value='';
   renderNotifsSent();
   showToast('Надіслано','Розсилку виконано','success');
@@ -1221,6 +1227,22 @@ function saveNote() {
   document.getElementById('note-text').value='';
   renderNotes();
   showToast('Збережено','Нотатку додано','success');
+}
+function renderParentNotifs() {
+  var list = document.getElementById('parent-notifs-list');
+  if (!list) return;
+  var notifs = getData('ffa_parent_notifs', []);
+  if (!notifs.length) return;
+  var html = notifs.map(function(n) {
+    var dot = n.read ? 'read' : '';
+    return '<div class="notif-item" onclick="this.querySelector(\'.notif-dot\').classList.add(\'read\')">' +
+      '<div class="notif-dot ' + dot + '"></div>' +
+      '<div><strong>' + n.title + '</strong>' +
+      '<p>' + n.text + '</p>' +
+      '<time>' + n.date + (n.to !== 'Всі батьки' ? ' &middot; Для: ' + n.to : '') + '</time>' +
+      '</div></div>';
+  }).join('');
+  list.innerHTML = html;
 }
 function renderNotes() {
   var notes = getNotes();
