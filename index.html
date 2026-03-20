@@ -47,6 +47,8 @@ header{position:fixed;top:0;left:0;right:0;z-index:900;padding:0 5%;background:r
 .btn-primary:hover{background:#00e676;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,200,83,.4)}
 .btn-outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.2)}
 .btn-outline:hover{border-color:var(--green);color:var(--green)}
+.btn-danger{background:rgba(244,67,54,.15);color:#f44336;border:1px solid rgba(244,67,54,.3)}
+.btn-danger:hover{background:rgba(244,67,54,.3)}
 .section{padding:6rem 5%}
 .section-alt{background:var(--dark2)}
 .section-tag{display:inline-flex;align-items:center;gap:.5rem;color:var(--green);font-family:var(--font-cond);font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem}
@@ -170,11 +172,13 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
 .footer-bottom{padding:1.5rem 5%;border-top:1px solid var(--border);background:var(--dark2);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--text-muted)}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:9000;align-items:center;justify-content:center}
 .modal-overlay.active{display:flex}
-.modal-box{background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:2.5rem;width:420px;max-width:92vw;position:relative;animation:scaleIn .25s ease}
+.modal-box{background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:2.5rem;width:480px;max-width:92vw;position:relative;animation:scaleIn .25s ease;max-height:90vh;overflow-y:auto}
+.modal-box-wide{width:600px}
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--text-muted);font-size:1.2rem;cursor:pointer}
 .modal-close:hover{color:var(--text)}
 .modal-title{font-family:var(--font-display);font-size:2rem;letter-spacing:2px;margin-bottom:.25rem}
 .modal-sub{color:var(--text-muted);font-size:.9rem;margin-bottom:2rem;font-weight:300}
+.modal-actions{display:flex;gap:.75rem;margin-top:1.5rem;justify-content:flex-end}
 .demo-hint{margin-top:1.25rem;background:rgba(0,200,83,.07);border:1px solid rgba(0,200,83,.15);border-radius:6px;padding:.75rem 1rem;font-size:.78rem;color:var(--text-muted);line-height:1.7}
 .demo-hint strong{color:var(--green)}
 .toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;display:flex;align-items:center;gap:.75rem;transform:translateX(120%);transition:transform .35s cubic-bezier(.4,0,.2,1);min-width:280px;max-width:360px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
@@ -185,6 +189,13 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
 .loading-bar{position:fixed;top:70px;left:0;right:0;z-index:800;height:2px;display:none}
 .loading-bar.active{display:block}
 .loading-bar::after{content:'';display:block;height:100%;background:var(--green);animation:loadBar 1.2s ease infinite}
+.confirm-box{background:var(--dark2);border:1px solid rgba(244,67,54,.3);border-radius:12px;padding:2rem;width:380px;max-width:92vw;text-align:center;animation:scaleIn .25s ease}
+.confirm-box h3{font-family:var(--font-cond);font-size:1.3rem;font-weight:700;margin-bottom:.75rem}
+.confirm-box p{color:var(--text-muted);font-size:.9rem;margin-bottom:1.5rem}
+.confirm-actions{display:flex;gap:.75rem;justify-content:center}
+.search-bar{display:flex;gap:.75rem;margin-bottom:1.25rem;align-items:center}
+.search-bar input{flex:1;background:var(--dark2);border:1px solid var(--border);color:var(--text);font-family:var(--font-body);font-size:.9rem;padding:.6rem 1rem;border-radius:4px;outline:none}
+.search-bar input:focus{border-color:var(--green)}
 @keyframes loadBar{0%{width:0;margin-left:0}50%{width:60%;margin-left:20%}100%{width:0;margin-left:100%}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scaleIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
@@ -207,20 +218,8 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
 <!-- HOME -->
 <div id="home" class="page active">
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="field-deco">
-      <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="20" width="560" height="360" stroke="white" stroke-width="2" fill="none"/>
-        <line x1="300" y1="20" x2="300" y2="380" stroke="white" stroke-width="1.5"/>
-        <circle cx="300" cy="200" r="60" stroke="white" stroke-width="1.5" fill="none"/>
-        <circle cx="300" cy="200" r="4" fill="white"/>
-        <rect x="20" y="150" width="80" height="100" stroke="white" stroke-width="1.5" fill="none"/>
-        <rect x="500" y="150" width="80" height="100" stroke="white" stroke-width="1.5" fill="none"/>
-        <rect x="20" y="170" width="40" height="60" stroke="white" stroke-width="1.5" fill="none"/>
-        <rect x="540" y="170" width="40" height="60" stroke="white" stroke-width="1.5" fill="none"/>
-      </svg>
-    </div>
+    <div class="hero-bg"></div><div class="hero-grid"></div>
+    <div class="field-deco"><svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="560" height="360" stroke="white" stroke-width="2" fill="none"/><line x1="300" y1="20" x2="300" y2="380" stroke="white" stroke-width="1.5"/><circle cx="300" cy="200" r="60" stroke="white" stroke-width="1.5" fill="none"/><circle cx="300" cy="200" r="4" fill="white"/><rect x="20" y="150" width="80" height="100" stroke="white" stroke-width="1.5" fill="none"/><rect x="500" y="150" width="80" height="100" stroke="white" stroke-width="1.5" fill="none"/><rect x="20" y="170" width="40" height="60" stroke="white" stroke-width="1.5" fill="none"/><rect x="540" y="170" width="40" height="60" stroke="white" stroke-width="1.5" fill="none"/></svg></div>
     <div class="hero-content">
       <div class="hero-tag"><span></span> Футбольна академія &middot; Львів</div>
       <h1>МАЙБУТНІ<br><em class="accent">ЧЕМПІОНИ</em><br><span class="line2">ПОЧИНАЮТЬСЯ ТУТ</span></h1>
@@ -237,7 +236,6 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       </div>
     </div>
   </section>
-
   <section class="section">
     <div class="section-tag">Наші переваги</div>
     <h2 class="section-title">ЧОМУ ОБИРАЮТЬ НАС</h2>
@@ -251,7 +249,6 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       <div class="feature-card"><div class="feature-icon"><i class="fas fa-mobile-alt"></i></div><h3>Цифровий кабінет</h3><p>Батьки завжди в курсі розкладу, оплат та прогресу дитини через зручний онлайн-кабінет.</p></div>
     </div>
   </section>
-
   <section class="section section-alt">
     <div class="section-tag">Команда</div>
     <h2 class="section-title">НАШІ ТРЕНЕРИ</h2>
@@ -263,7 +260,6 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       <div class="coach-card"><div class="coach-photo"><div class="coach-avatar">СМ</div></div><div class="coach-info"><h3>Сергій Мельник</h3><div class="coach-role">Тактичний аналітик &middot; UEFA A</div><p>10 років досвіду. Аналітик відеоматеріалів. Розробляє тактичні плани для всіх груп.</p></div></div>
     </div>
   </section>
-
   <section class="section">
     <div class="section-tag">Відгуки</div>
     <h2 class="section-title">ЩО КАЖУТЬ БАТЬКИ</h2>
@@ -274,11 +270,9 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
     </div>
   </section>
 </div>
-
 <!-- ABOUT -->
 <div id="about" class="page">
-  <section class="hero" style="min-height:50vh">
-    <div class="hero-bg"></div><div class="hero-grid"></div>
+  <section class="hero" style="min-height:50vh"><div class="hero-bg"></div><div class="hero-grid"></div>
     <div class="hero-content" style="padding-top:4rem;padding-bottom:0">
       <div class="hero-tag"><span></span> Про нас</div>
       <h1>ПРО <em class="accent">АКАДЕМІЮ</em></h1>
@@ -290,7 +284,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       <div>
         <div class="section-tag">Наша місія</div>
         <h2 class="section-title" style="font-size:2.5rem">ФОРМУЄМО ХАРАКТЕР</h2>
-        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Future Football Academy &mdash; це не просто футбольна школа. Це місце, де формується характер, розвивається командний дух і закладається фундамент для майбутніх успіхів на полі та в житті.</p>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Future Football Academy &mdash; це не просто футбольна школа. Це місце, де формується характер, розвивається командний дух і закладається фундамент для майбутніх успіхів.</p>
         <p style="color:var(--text-muted);line-height:1.8;font-weight:300">Ми вважаємо, що кожна дитина має унікальний потенціал. Наша задача &mdash; знайти, розвинути та направити цей потенціал через структуровані тренування та позитивне середовище.</p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
@@ -303,17 +297,15 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
     <div class="section-tag">Інфраструктура</div>
     <h2 class="section-title" style="font-size:2rem;margin-bottom:2rem">НАША БАЗА</h2>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon"><i class="fas fa-football-ball"></i></div><h3>2 футбольних поля</h3><p>Штучне покриття FIFA Quality, освітлення для вечірніх тренувань, стандартні розміри для вікових категорій.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="fas fa-video"></i></div><h3>Відеоаналіз</h3><p>Камери на полях дозволяють записувати тренування та матчі для детального аналізу тактики і техніки.</p></div>
-      <div class="feature-card"><div class="feature-icon"><i class="fas fa-heartbeat"></i></div><h3>Медичний супровід</h3><p>Штатний фізіотерапевт, первинна медична допомога, моніторинг фізичного стану гравців.</p></div>
+      <div class="feature-card"><div class="feature-icon"><i class="fas fa-football-ball"></i></div><h3>2 футбольних поля</h3><p>Штучне покриття FIFA Quality, освітлення для вечірніх тренувань.</p></div>
+      <div class="feature-card"><div class="feature-icon"><i class="fas fa-video"></i></div><h3>Відеоаналіз</h3><p>Камери на полях дозволяють записувати тренування та матчі для аналізу тактики.</p></div>
+      <div class="feature-card"><div class="feature-icon"><i class="fas fa-heartbeat"></i></div><h3>Медичний супровід</h3><p>Штатний фізіотерапевт, первинна медична допомога, моніторинг стану гравців.</p></div>
     </div>
   </section>
 </div>
-
 <!-- GROUPS -->
 <div id="groups" class="page">
-  <section class="hero" style="min-height:40vh">
-    <div class="hero-bg"></div><div class="hero-grid"></div>
+  <section class="hero" style="min-height:40vh"><div class="hero-bg"></div><div class="hero-grid"></div>
     <div class="hero-content" style="padding-top:4rem;padding-bottom:0">
       <div class="hero-tag"><span></span> Групи</div>
       <h1>ВІКОВІ <em class="accent">ГРУПИ</em></h1>
@@ -339,7 +331,6 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
     </div>
   </section>
 </div>
-
 <!-- CONTACTS -->
 <div id="contacts" class="page">
   <section class="section" style="padding-top:120px">
@@ -349,7 +340,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
         <h2 class="section-title">КОНТАКТИ</h2>
         <div class="contact-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong>Адреса</strong><span>вул. Спортивна, 5, Львів, 79000</span></div></div>
         <div class="contact-item"><div class="ci-icon"><i class="fas fa-phone"></i></div><div><strong>Телефон</strong><span>+380 67 123 45 67</span></div></div>
-        <div class="contact-item"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="deb7b0b8b19eb8abaaabacbbb8b1b1aabcbfb2b2f0abbf">[email&#160;protected]</a></span></div></div>
+        <div class="contact-item"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><span>info@futurefootball.ua</span></div></div>
         <div class="contact-item"><div class="ci-icon"><i class="fas fa-clock"></i></div><div><strong>Режим роботи</strong><span>Пн&ndash;Сб: 09:00&ndash;21:00 &middot; Нд: вихідний</span></div></div>
       </div>
       <div class="contact-form-card">
@@ -372,7 +363,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
     </div>
   </section>
 </div>
-<!-- DASHBOARD PARENT -->
+<!-- PARENT DASH -->
 <div id="parent-dash" class="page">
   <div class="dashboard-layout">
     <aside class="sidebar">
@@ -410,11 +401,11 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
         <div class="dash-header"><h1>РОЗКЛАД</h1><p>Тренування вашої дитини</p></div>
         <div class="dash-card"><h3>Березень 2026</h3>
           <table class="data-table"><thead><tr><th>Дата</th><th>День</th><th>Час</th><th>Поле</th><th>Тема</th><th>Статус</th></tr></thead><tbody>
-            <tr><td>17 бер</td><td>Пн</td><td>18:00&ndash;19:30</td><td>Поле №1</td><td>Тактика 4-3-3</td><td><span class="badge badge-green">Був</span></td></tr>
-            <tr><td>19 бер</td><td>Ср</td><td>18:00&ndash;19:30</td><td>Поле №2</td><td>Стандарти</td><td><span class="badge badge-green">Був</span></td></tr>
-            <tr><td>21 бер</td><td>Пт</td><td>18:00&ndash;19:30</td><td>Поле №1</td><td>Фізична підготовка</td><td><span class="badge badge-red">Пропуск</span></td></tr>
-            <tr><td>22 бер</td><td>Сб</td><td>18:00&ndash;19:30</td><td>Поле №1</td><td>Фізична підготовка</td><td><span class="badge badge-yellow">Запл.</span></td></tr>
-            <tr><td>24 бер</td><td>Пн</td><td>18:00&ndash;19:30</td><td>Поле №2</td><td>Гра 11x11</td><td><span class="badge badge-yellow">Запл.</span></td></tr>
+            <tr><td>17 бер</td><td>Пн</td><td>18:00</td><td>Поле №1</td><td>Тактика 4-3-3</td><td><span class="badge badge-green">Був</span></td></tr>
+            <tr><td>19 бер</td><td>Ср</td><td>18:00</td><td>Поле №2</td><td>Стандарти</td><td><span class="badge badge-green">Був</span></td></tr>
+            <tr><td>21 бер</td><td>Пт</td><td>18:00</td><td>Поле №1</td><td>Фізична підготовка</td><td><span class="badge badge-red">Пропуск</span></td></tr>
+            <tr><td>22 бер</td><td>Сб</td><td>18:00</td><td>Поле №1</td><td>Фізична підготовка</td><td><span class="badge badge-yellow">Запл.</span></td></tr>
+            <tr><td>24 бер</td><td>Пн</td><td>18:00</td><td>Поле №2</td><td>Гра 11x11</td><td><span class="badge badge-yellow">Запл.</span></td></tr>
           </tbody></table>
         </div>
       </div>
@@ -425,12 +416,16 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
           <div class="metric-card"><div class="metric-label">Сума абонементу</div><div class="metric-value">1800<span class="metric-unit"> грн</span></div></div>
           <div class="metric-card"><div class="metric-label">Наступна оплата</div><div class="metric-value" style="font-size:1.2rem;color:var(--text)">01 квітня</div></div>
         </div>
+        <div class="dash-card" style="margin-bottom:1.5rem">
+          <h3>Онлайн-оплата</h3>
+          <p style="color:var(--text-muted);margin-bottom:1rem;font-size:.9rem">Оплатіть наступний місяць онлайн</p>
+          <button class="btn btn-primary" onclick="openPayModal()"><i class="fas fa-credit-card"></i> Оплатити 1800 грн</button>
+        </div>
         <div class="dash-card"><h3>Історія платежів</h3>
           <table class="data-table"><thead><tr><th>Дата</th><th>Опис</th><th>Сума</th><th>Статус</th></tr></thead><tbody>
             <tr><td>01 бер 2026</td><td>Абонемент &mdash; березень</td><td>1800 грн</td><td><span class="badge badge-green">Оплачено</span></td></tr>
             <tr><td>01 лют 2026</td><td>Абонемент &mdash; лютий</td><td>1800 грн</td><td><span class="badge badge-green">Оплачено</span></td></tr>
             <tr><td>01 січ 2026</td><td>Абонемент &mdash; січень</td><td>1800 грн</td><td><span class="badge badge-green">Оплачено</span></td></tr>
-            <tr><td>15 груд 2025</td><td>Зимовий збір</td><td>500 грн</td><td><span class="badge badge-green">Оплачено</span></td></tr>
           </tbody></table>
         </div>
       </div>
@@ -456,14 +451,13 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
           <div class="notif-item"><div class="notif-dot"></div><div><strong>Зміна розкладу</strong><p>Тренування 21 березня перенесено на 22 березня 18:00</p><time>2 год тому</time></div></div>
           <div class="notif-item"><div class="notif-dot"></div><div><strong>Нагадування про оплату</strong><p>Оплата за квітень відкрита з 1 квітня. Сума: 1800 грн.</p><time>1 день тому</time></div></div>
           <div class="notif-item"><div class="notif-dot"></div><div><strong>Турнір U-12</strong><p>26 березня о 17:00 &mdash; товариська гра проти ФА Галичина.</p><time>2 дні тому</time></div></div>
-          <div class="notif-item"><div class="notif-dot read"></div><div><strong>Молодець!</strong><p>Дмитро відзначився у товариській грі проти U-12 Галичина</p><time>3 дні тому</time></div></div>
+          <div class="notif-item"><div class="notif-dot read"></div><div><strong>Молодець!</strong><p>Дмитро відзначився у товариській грі</p><time>3 дні тому</time></div></div>
         </div>
       </div>
     </main>
   </div>
 </div>
-
-<!-- DASHBOARD COACH -->
+<!-- COACH DASH -->
 <div id="coach-dash" class="page">
   <div class="dashboard-layout">
     <aside class="sidebar">
@@ -485,8 +479,8 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
           <div class="metric-card"><div class="metric-label">Подій цього тижня</div><div class="metric-value">5</div></div>
         </div>
         <div class="dash-card"><h3>Найближчі тренування</h3>
-          <div class="schedule-item"><div class="schedule-date">22<small>Бер</small></div><div class="schedule-info"><strong>U-12 Надія</strong><span>18:00&ndash;19:30 &middot; Поле №1 &middot; 16 гравців</span></div><span class="badge badge-green">Сьогодні</span></div>
-          <div class="schedule-item"><div class="schedule-date">24<small>Бер</small></div><div class="schedule-info"><strong>U-14 Еліта</strong><span>19:00&ndash;20:30 &middot; Поле №2 &middot; 18 гравців</span></div><span class="badge badge-yellow">Запл.</span></div>
+          <div class="schedule-item"><div class="schedule-date">22<small>Бер</small></div><div class="schedule-info"><strong>U-12 Надія</strong><span>18:00 &middot; Поле №1 &middot; 16 гравців</span></div><span class="badge badge-green">Сьогодні</span></div>
+          <div class="schedule-item"><div class="schedule-date">24<small>Бер</small></div><div class="schedule-info"><strong>U-14 Еліта</strong><span>19:00 &middot; Поле №2 &middot; 18 гравців</span></div><span class="badge badge-yellow">Запл.</span></div>
           <div class="schedule-item"><div class="schedule-date">26<small>Бер</small></div><div class="schedule-info"><strong>Товариська гра U-12</strong><span>17:00 &middot; Поле №1</span></div><span class="badge badge-yellow">Гра</span></div>
         </div>
       </div>
@@ -517,11 +511,11 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
         <div class="dash-header"><h1>РОЗКЛАД</h1><p>Ваш тренувальний план</p></div>
         <div class="dash-card"><h3>Тиждень 22&ndash;28 березня 2026</h3>
           <table class="data-table"><thead><tr><th>День</th><th>Час</th><th>Група</th><th>Тема</th><th>Поле</th></tr></thead><tbody>
-            <tr><td>Пн 22 бер</td><td>18:00&ndash;19:30</td><td>U-12</td><td>Тактика 4-3-3</td><td>Поле №1</td></tr>
-            <tr><td>Вт 23 бер</td><td>19:00&ndash;20:30</td><td>U-14</td><td>Пресинг</td><td>Поле №2</td></tr>
-            <tr><td>Ср 24 бер</td><td>18:00&ndash;19:30</td><td>U-12</td><td>Стандарти</td><td>Поле №1</td></tr>
-            <tr><td>Чт 25 бер</td><td>19:00&ndash;20:30</td><td>U-14</td><td>Контратака</td><td>Поле №2</td></tr>
-            <tr><td>Пт 26 бер</td><td>17:00&ndash;18:30</td><td>U-12</td><td>Товариська гра</td><td>Поле №1</td></tr>
+            <tr><td>Пн 22 бер</td><td>18:00</td><td>U-12</td><td>Тактика 4-3-3</td><td>Поле №1</td></tr>
+            <tr><td>Вт 23 бер</td><td>19:00</td><td>U-14</td><td>Пресинг</td><td>Поле №2</td></tr>
+            <tr><td>Ср 24 бер</td><td>18:00</td><td>U-12</td><td>Стандарти</td><td>Поле №1</td></tr>
+            <tr><td>Чт 25 бер</td><td>19:00</td><td>U-14</td><td>Контратака</td><td>Поле №2</td></tr>
+            <tr><td>Пт 26 бер</td><td>17:00</td><td>U-12</td><td>Товариська гра</td><td>Поле №1</td></tr>
           </tbody></table>
         </div>
       </div>
@@ -534,19 +528,20 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       </div>
       <div id="c-notes" class="dash-subpage">
         <div class="dash-header"><h1>НОТАТКИ</h1><p>Прогрес гравців</p></div>
-        <div class="dash-card"><h3>Додати нотатку</h3>
+        <div class="dash-card" style="margin-bottom:1.5rem"><h3>Додати нотатку</h3>
           <div class="form-row">
-            <div class="form-group"><label>Гравець</label><select><option>Петренко Дмитро</option><option>Коваль Максим</option><option>Мороз Андрій</option><option>Бондар Юрій</option></select></div>
-            <div class="form-group"><label>Дата</label><input type="date" value="2026-03-20"></div>
+            <div class="form-group"><label>Гравець</label><select id="note-player"><option>Петренко Дмитро</option><option>Коваль Максим</option><option>Мороз Андрій</option><option>Бондар Юрій</option></select></div>
+            <div class="form-group"><label>Дата</label><input type="date" id="note-date" value="2026-03-20"></div>
           </div>
-          <div class="form-group"><label>Нотатка</label><textarea placeholder="Опишіть прогрес та рекомендації..."></textarea></div>
-          <button class="btn btn-primary" onclick="showToast('Збережено','Нотатку додано','success')"><i class="fas fa-plus"></i> Додати</button>
+          <div class="form-group"><label>Нотатка</label><textarea id="note-text" placeholder="Опишіть прогрес та рекомендації..."></textarea></div>
+          <button class="btn btn-primary" onclick="saveNote()"><i class="fas fa-plus"></i> Додати</button>
         </div>
+        <div class="dash-card"><h3>Збережені нотатки</h3><div id="notes-list"><p style="color:var(--text-muted);font-size:.9rem">Нотатки з'являться після додавання.</p></div></div>
       </div>
     </main>
   </div>
 </div>
-<!-- DASHBOARD ADMIN -->
+<!-- ADMIN DASH -->
 <div id="admin-dash" class="page">
   <div class="dashboard-layout">
     <aside class="sidebar">
@@ -561,82 +556,99 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
       <div class="sidebar-logout"><button class="sidebar-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Вийти</button></div>
     </aside>
     <main class="dash-main">
+      <!-- OVERVIEW -->
       <div id="a-overview" class="dash-subpage active">
         <div class="dash-header"><h1>ОГЛЯД</h1><p>Future Football Academy &mdash; адмін-панель</p></div>
         <div class="metrics-grid">
-          <div class="metric-card"><div class="metric-label">Всього гравців</div><div class="metric-value">152</div></div>
-          <div class="metric-card"><div class="metric-label">Тренерів</div><div class="metric-value">12</div></div>
-          <div class="metric-card"><div class="metric-label">Активних груп</div><div class="metric-value">8</div></div>
+          <div class="metric-card"><div class="metric-label">Всього гравців</div><div class="metric-value" id="stat-players">0</div></div>
+          <div class="metric-card"><div class="metric-label">Тренерів</div><div class="metric-value" id="stat-coaches">0</div></div>
+          <div class="metric-card"><div class="metric-label">Активних груп</div><div class="metric-value" id="stat-groups">0</div></div>
           <div class="metric-card"><div class="metric-label">Дохід місяць</div><div class="metric-value">63<span class="metric-unit">к</span></div></div>
-          <div class="metric-card"><div class="metric-label">Боржники</div><div class="metric-value" style="color:#f44336">7</div></div>
+          <div class="metric-card"><div class="metric-label">Боржники</div><div class="metric-value" style="color:#f44336" id="stat-debtors">0</div></div>
           <div class="metric-card"><div class="metric-label">Тренувань цього тижня</div><div class="metric-value">24</div></div>
         </div>
         <div class="dash-grid">
           <div class="dash-card"><h3>Дохід за 6 місяців (тис. грн)</h3><div class="chart-bars" id="income-chart"></div></div>
-          <div class="dash-card"><h3>Останні дії</h3>
-            <div class="notif-item"><div class="notif-dot"></div><div><strong>Новий гравець</strong><p>Василь Іванченко додано до U-8</p><time>10 хв тому</time></div></div>
-            <div class="notif-item"><div class="notif-dot"></div><div><strong>Оплата підтверджена</strong><p>Петренко Д. &mdash; березень 2026</p><time>1 год тому</time></div></div>
-            <div class="notif-item"><div class="notif-dot read"></div><div><strong>Зміна розкладу</strong><p>U-12: перенос з 21 на 22 березня</p><time>3 год тому</time></div></div>
+          <div class="dash-card"><h3>Останні дії</h3><div id="activity-log">
+            <div class="notif-item"><div class="notif-dot"></div><div><strong>Система запущена</strong><p>Адмін-панель готова до роботи</p><time>зараз</time></div></div>
+          </div></div>
+        </div>
+      </div>
+      <!-- PLAYERS -->
+      <div id="a-players" class="dash-subpage">
+        <div class="dash-header">
+          <h1>ГРАВЦІ</h1><p>Управління гравцями академії</p>
+          <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="openPlayerModal()"><i class="fas fa-plus"></i> Додати гравця</button>
           </div>
         </div>
-      </div>
-      <div id="a-players" class="dash-subpage">
-        <div class="dash-header"><h1>ГРАВЦІ</h1><p>Управління гравцями академії</p>
-          <button class="btn btn-primary" style="margin-top:1rem" onclick="showToast('Функція','Форма додавання гравця','success')"><i class="fas fa-plus"></i> Додати гравця</button>
+        <div class="dash-card">
+          <div class="search-bar">
+            <input type="text" id="player-search" placeholder="Пошук гравця..." oninput="renderPlayers()">
+            <select id="player-filter-group" onchange="renderPlayers()" style="background:var(--dark2);border:1px solid var(--border);color:var(--text);padding:.6rem 1rem;border-radius:4px;outline:none;font-family:var(--font-body)">
+              <option value="">Всі групи</option>
+              <option value="U-8">U-8</option>
+              <option value="U-10">U-10</option>
+              <option value="U-12">U-12</option>
+              <option value="U-14">U-14</option>
+              <option value="U-16">U-16</option>
+            </select>
+            <select id="player-filter-pay" onchange="renderPlayers()" style="background:var(--dark2);border:1px solid var(--border);color:var(--text);padding:.6rem 1rem;border-radius:4px;outline:none;font-family:var(--font-body)">
+              <option value="">Всі статуси</option>
+              <option value="paid">Оплачено</option>
+              <option value="debt">Борг</option>
+              <option value="partial">Частково</option>
+            </select>
+          </div>
+          <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>ID</th><th>ПІБ</th><th>Вік</th><th>Група</th><th>Оплата</th><th>Телефон</th><th>Дії</th></tr></thead><tbody id="players-tbody"></tbody></table></div>
         </div>
-        <div class="dash-card"><h3>Всі гравці</h3>
-          <table class="data-table"><thead><tr><th>ID</th><th>ПІБ</th><th>Вік</th><th>Група</th><th>Оплата</th><th>Контакт</th><th></th></tr></thead><tbody>
-            <tr><td>#001</td><td>Петренко Дмитро</td><td>11</td><td>U-12</td><td><span class="badge badge-green">Оплачено</span></td><td>+380671234567</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="showToast('Редагування','Профіль гравця','success')"><i class="fas fa-edit"></i></button></td></tr>
-            <tr><td>#002</td><td>Коваль Максим</td><td>12</td><td>U-12</td><td><span class="badge badge-green">Оплачено</span></td><td>+380679876543</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="showToast('Редагування','Профіль гравця','success')"><i class="fas fa-edit"></i></button></td></tr>
-            <tr><td>#003</td><td>Гончаренко Іван</td><td>13</td><td>U-14</td><td><span class="badge badge-red">Борг</span></td><td>+380671112233</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="showToast('Редагування','Профіль гравця','success')"><i class="fas fa-edit"></i></button></td></tr>
-            <tr><td>#004</td><td>Мороз Андрій</td><td>11</td><td>U-12</td><td><span class="badge badge-yellow">Частково</span></td><td>+380675554433</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="showToast('Редагування','Профіль гравця','success')"><i class="fas fa-edit"></i></button></td></tr>
-            <tr><td>#005</td><td>Шевченко Олексій</td><td>14</td><td>U-16</td><td><span class="badge badge-green">Оплачено</span></td><td>+380673456789</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="showToast('Редагування','Профіль гравця','success')"><i class="fas fa-edit"></i></button></td></tr>
-          </tbody></table>
-        </div>
       </div>
+      <!-- COACHES -->
       <div id="a-coaches" class="dash-subpage">
-        <div class="dash-header"><h1>ТРЕНЕРИ</h1><p>Команда академії</p></div>
-        <div class="dash-card"><h3>Список тренерів</h3>
-          <table class="data-table"><thead><tr><th>ПІБ</th><th>Ліцензія</th><th>Групи</th><th>Гравців</th><th>Статус</th></tr></thead><tbody>
-            <tr><td>Ткаченко Олег</td><td>UEFA B</td><td>U-12, U-14</td><td>34</td><td><span class="badge badge-green">Активний</span></td></tr>
-            <tr><td>Коваль Марія</td><td>UEFA C</td><td>U-10, U-12</td><td>30</td><td><span class="badge badge-green">Активний</span></td></tr>
-            <tr><td>Петренко Андрій</td><td>UEFA C</td><td>U-6, U-8</td><td>22</td><td><span class="badge badge-green">Активний</span></td></tr>
-            <tr><td>Мельник Сергій</td><td>UEFA A</td><td>Всі групи</td><td>&mdash;</td><td><span class="badge badge-yellow">Аналітик</span></td></tr>
-          </tbody></table>
+        <div class="dash-header">
+          <h1>ТРЕНЕРИ</h1><p>Команда академії</p>
+          <button class="btn btn-primary" style="margin-top:1rem" onclick="openCoachModal()"><i class="fas fa-plus"></i> Додати тренера</button>
+        </div>
+        <div class="dash-card">
+          <div class="search-bar"><input type="text" id="coach-search" placeholder="Пошук тренера..." oninput="renderCoaches()"></div>
+          <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>ПІБ</th><th>Ліцензія</th><th>Групи</th><th>Телефон</th><th>Статус</th><th>Дії</th></tr></thead><tbody id="coaches-tbody"></tbody></table></div>
         </div>
       </div>
+      <!-- GROUPS -->
       <div id="a-groups" class="dash-subpage">
-        <div class="dash-header"><h1>ГРУПИ</h1><p>Управління групами</p></div>
-        <div class="features-grid">
-          <div class="dash-card"><h3>U-8 Малюки</h3><p style="color:var(--text-muted);margin-bottom:.5rem">Тренер: Петренко А.</p><p style="color:var(--text-muted)">Гравців: 12 / 12</p><div style="margin-top:1rem"><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></div><button style="margin-top:1rem" class="btn btn-outline" onclick="showToast('Групи','Редагування групи','success')">Редагувати</button></div>
-          <div class="dash-card"><h3>U-10 Перспектива</h3><p style="color:var(--text-muted);margin-bottom:.5rem">Тренер: Коваль М.</p><p style="color:var(--text-muted)">Гравців: 11 / 14</p><div style="margin-top:1rem"><div class="progress-track"><div class="progress-fill" style="width:78%"></div></div></div><button style="margin-top:1rem" class="btn btn-outline" onclick="showToast('Групи','Редагування групи','success')">Редагувати</button></div>
-          <div class="dash-card"><h3>U-12 Надія</h3><p style="color:var(--text-muted);margin-bottom:.5rem">Тренер: Ткаченко О.</p><p style="color:var(--text-muted)">Гравців: 16 / 16</p><div style="margin-top:1rem"><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></div><button style="margin-top:1rem" class="btn btn-outline" onclick="showToast('Групи','Редагування групи','success')">Редагувати</button></div>
-          <div class="dash-card"><h3>U-14 Еліта</h3><p style="color:var(--text-muted);margin-bottom:.5rem">Тренер: Ткаченко О.</p><p style="color:var(--text-muted)">Гравців: 18 / 18</p><div style="margin-top:1rem"><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></div><button style="margin-top:1rem" class="btn btn-outline" onclick="showToast('Групи','Редагування групи','success')">Редагувати</button></div>
+        <div class="dash-header">
+          <h1>ГРУПИ</h1><p>Управління групами</p>
+          <button class="btn btn-primary" style="margin-top:1rem" onclick="openGroupModal()"><i class="fas fa-plus"></i> Додати групу</button>
         </div>
+        <div id="admin-groups-grid" class="features-grid"></div>
       </div>
+      <!-- PAYMENTS -->
       <div id="a-payments" class="dash-subpage">
-        <div class="dash-header"><h1>ОПЛАТИ</h1><p>Фінансовий контроль</p></div>
-        <div class="metrics-grid" style="margin-bottom:1.5rem">
-          <div class="metric-card"><div class="metric-label">Оплачено</div><div class="metric-value" style="color:var(--green)">145</div></div>
-          <div class="metric-card"><div class="metric-label">Боржники</div><div class="metric-value" style="color:#f44336">7</div></div>
-          <div class="metric-card"><div class="metric-label">Дохід березень</div><div class="metric-value">63<span class="metric-unit">к</span></div></div>
+        <div class="dash-header">
+          <h1>ОПЛАТИ</h1><p>Фінансовий контроль</p>
+          <button class="btn btn-primary" style="margin-top:1rem" onclick="openPaymentModal()"><i class="fas fa-plus"></i> Додати оплату</button>
         </div>
-        <div class="dash-card"><h3>Боржники</h3>
-          <table class="data-table"><thead><tr><th>Гравець</th><th>Група</th><th>Борг</th><th>Місяць</th><th>Дія</th></tr></thead><tbody>
-            <tr><td>Гончаренко Іван</td><td>U-14</td><td>1800 грн</td><td>Березень</td><td><button class="btn btn-primary" style="padding:.3rem .8rem;font-size:.75rem" onclick="showToast('Надіслано','Нагадування батькам','success')">Нагадати</button></td></tr>
-            <tr><td>Сидоренко Петро</td><td>U-10</td><td>3600 грн</td><td>Лютий, Березень</td><td><button class="btn btn-primary" style="padding:.3rem .8rem;font-size:.75rem" onclick="showToast('Надіслано','Нагадування батькам','success')">Нагадати</button></td></tr>
-          </tbody></table>
+        <div class="metrics-grid" style="margin-bottom:1.5rem">
+          <div class="metric-card"><div class="metric-label">Оплачено</div><div class="metric-value" style="color:var(--green)" id="pay-count-paid">0</div></div>
+          <div class="metric-card"><div class="metric-label">Боржники</div><div class="metric-value" style="color:#f44336" id="pay-count-debt">0</div></div>
+          <div class="metric-card"><div class="metric-label">Дохід</div><div class="metric-value" id="pay-total">0<span class="metric-unit"> грн</span></div></div>
+        </div>
+        <div class="dash-card"><h3>Всі платежі</h3>
+          <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Дата</th><th>Гравець</th><th>Опис</th><th>Сума</th><th>Статус</th><th>Дії</th></tr></thead><tbody id="payments-tbody"></tbody></table></div>
         </div>
       </div>
+      <!-- NOTIFS -->
       <div id="a-notifs" class="dash-subpage">
         <div class="dash-header"><h1>РОЗСИЛКИ</h1><p>Сповіщення для батьків</p></div>
         <div class="dash-card"><h3>Нове сповіщення</h3>
-          <div class="form-group"><label>Отримувачі</label><select><option>Всі батьки</option><option>U-8</option><option>U-10</option><option>U-12</option><option>U-14</option><option>U-16</option></select></div>
-          <div class="form-group"><label>Тема</label><input type="text" placeholder="Заголовок повідомлення"></div>
-          <div class="form-group"><label>Текст</label><textarea placeholder="Текст повідомлення..."></textarea></div>
-          <button class="btn btn-primary" onclick="showToast('Надіслано','Розсилку виконано','success')"><i class="fas fa-paper-plane"></i> Надіслати</button>
+          <div class="form-group"><label>Отримувачі</label><select id="notif-to"><option>Всі батьки</option><option>U-8</option><option>U-10</option><option>U-12</option><option>U-14</option><option>U-16</option></select></div>
+          <div class="form-group"><label>Тема</label><input type="text" id="notif-title" placeholder="Заголовок повідомлення"></div>
+          <div class="form-group"><label>Текст</label><textarea id="notif-text" placeholder="Текст повідомлення..."></textarea></div>
+          <button class="btn btn-primary" onclick="sendNotif()"><i class="fas fa-paper-plane"></i> Надіслати</button>
         </div>
+        <div class="dash-card" style="margin-top:1.5rem"><h3>Надіслані сповіщення</h3><div id="notifs-sent-list"><p style="color:var(--text-muted);font-size:.9rem">Сповіщень ще немає.</p></div></div>
       </div>
+      <!-- TRIALS -->
       <div id="a-trials" class="dash-subpage">
         <div class="dash-header"><h1>ЗАЯВКИ</h1><p>Запис на пробне тренування</p></div>
         <div class="metrics-grid" style="margin-bottom:1.5rem">
@@ -649,15 +661,12 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
             <span>Список заявок</span>
             <button class="btn btn-outline" style="padding:.4rem .9rem;font-size:.75rem" onclick="clearTrials()"><i class="fas fa-trash"></i> Очистити</button>
           </h3>
-          <div id="trials-table-wrap">
-            <p style="color:var(--text-muted);text-align:center;padding:2rem">Заявок ще немає. Вони з'являться після заповнення форми на сторінці Контакти.</p>
-          </div>
+          <div id="trials-table-wrap"><p style="color:var(--text-muted);text-align:center;padding:2rem">Заявок ще немає.</p></div>
         </div>
       </div>
     </main>
   </div>
 </div>
-
 <!-- FOOTER -->
 <footer id="main-footer">
   <div class="footer-brand">
@@ -675,36 +684,165 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
     <h4>Контакти</h4>
     <a href="#">вул. Спортивна, 5, Львів</a>
     <a href="#">+380 67 123 45 67</a>
-    <a href="#"><span class="__cf_email__" data-cfemail="0e676068614e687b7a7b7c6b6861617a6c6f6262207b6f">[email&#160;protected]</span></a>
+    <a href="#">info@futurefootball.ua</a>
   </div>
 </footer>
 <div class="footer-bottom" id="footer-bottom">
   <span>&copy; 2026 Future Football Academy. Всі права захищені.</span>
   <span>Розрахункова робота з ІС</span>
 </div>
-
-<!-- MODAL -->
+<!-- LOGIN MODAL -->
 <div id="login-modal" class="modal-overlay">
   <div class="modal-box">
     <button class="modal-close" onclick="closeLogin()"><i class="fas fa-times"></i></button>
     <div class="modal-title">ВХІД</div>
     <div class="modal-sub">Особистий кабінет Future Football Academy</div>
-    <div class="form-group"><label>Email</label><input type="email" id="l-email" placeholder="логін"></div>
+    <div class="form-group"><label>Логін</label><input type="text" id="l-email" placeholder="логін"></div>
     <div class="form-group"><label>Пароль</label><input type="password" id="l-pass" placeholder="password"></div>
     <div class="form-group"><label>Роль</label>
-      <select id="l-role">
-        <option value="parent">Батьки / Гравець</option>
-        <option value="coach">Тренер</option>
-        <option value="admin">Адміністратор</option>
-      </select>
+      <select id="l-role"><option value="parent">Батьки / Гравець</option><option value="coach">Тренер</option><option value="admin">Адміністратор</option></select>
     </div>
     <button class="btn btn-primary" style="width:100%" onclick="doLogin()"><i class="fas fa-sign-in-alt"></i> Увійти</button>
-    <div class="demo-hint">
-        <strong>Demo-акаунти:</strong><br>
-        Батьки: <strong>логін: petrenko</strong> / <strong>parent123</strong><br>
-        Тренер: <strong>логін: tkachenko</strong> / <strong>coach123</strong><br>
-        Адмін: <strong>логін: admin</strong> / <strong>admin123</strong>
+    <div class="demo-hint"><strong>Demo-акаунти:</strong><br>Батьки: <strong>petrenko</strong> / <strong>parent123</strong><br>Тренер: <strong>tkachenko</strong> / <strong>coach123</strong><br>Адмін: <strong>admin</strong> / <strong>admin123</strong></div>
+  </div>
+</div>
+
+<!-- PLAYER MODAL -->
+<div id="player-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('player-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-title" id="player-modal-title">ГРАВЕЦЬ</div>
+    <div class="modal-sub" id="player-modal-sub">Заповніть дані гравця</div>
+    <input type="hidden" id="pm-id">
+    <div class="form-row">
+      <div class="form-group"><label>Прізвище *</label><input type="text" id="pm-last" placeholder="Петренко"></div>
+      <div class="form-group"><label>Ім'я *</label><input type="text" id="pm-first" placeholder="Дмитро"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Вік *</label><input type="number" id="pm-age" placeholder="11" min="6" max="17"></div>
+      <div class="form-group"><label>Група *</label>
+        <select id="pm-group"><option value="U-8">U-8</option><option value="U-10">U-10</option><option value="U-12">U-12</option><option value="U-14">U-14</option><option value="U-16">U-16</option></select>
       </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Телефон батьків</label><input type="tel" id="pm-phone" placeholder="+380 67 ..."></div>
+      <div class="form-group"><label>Статус оплати</label>
+        <select id="pm-pay"><option value="paid">Оплачено</option><option value="debt">Борг</option><option value="partial">Частково</option></select>
+      </div>
+    </div>
+    <div class="form-group"><label>Email батьків</label><input type="email" id="pm-email" placeholder="email@example.com"></div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('player-modal')">Скасувати</button>
+      <button class="btn btn-primary" onclick="savePlayer()"><i class="fas fa-save"></i> Зберегти</button>
+    </div>
+  </div>
+</div>
+
+<!-- COACH MODAL -->
+<div id="coach-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('coach-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-title" id="coach-modal-title">ТРЕНЕР</div>
+    <div class="modal-sub">Заповніть дані тренера</div>
+    <input type="hidden" id="cm-id">
+    <div class="form-row">
+      <div class="form-group"><label>Прізвище *</label><input type="text" id="cm-last" placeholder="Ткаченко"></div>
+      <div class="form-group"><label>Ім'я *</label><input type="text" id="cm-first" placeholder="Олег"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Ліцензія</label>
+        <select id="cm-lic"><option value="UEFA A">UEFA A</option><option value="UEFA B">UEFA B</option><option value="UEFA C">UEFA C</option></select>
+      </div>
+      <div class="form-group"><label>Статус</label>
+        <select id="cm-status"><option value="active">Активний</option><option value="analyst">Аналітик</option><option value="inactive">Неактивний</option></select>
+      </div>
+    </div>
+    <div class="form-group"><label>Телефон</label><input type="tel" id="cm-phone" placeholder="+380 67 ..."></div>
+    <div class="form-group"><label>Групи (через кому)</label><input type="text" id="cm-groups" placeholder="U-12, U-14"></div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('coach-modal')">Скасувати</button>
+      <button class="btn btn-primary" onclick="saveCoach()"><i class="fas fa-save"></i> Зберегти</button>
+    </div>
+  </div>
+</div>
+
+<!-- GROUP MODAL -->
+<div id="group-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('group-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-title" id="group-modal-title">ГРУПА</div>
+    <div class="modal-sub">Заповніть дані групи</div>
+    <input type="hidden" id="gm-id">
+    <div class="form-row">
+      <div class="form-group"><label>Назва *</label><input type="text" id="gm-name" placeholder="Надія"></div>
+      <div class="form-group"><label>Категорія *</label>
+        <select id="gm-cat"><option value="U-8">U-8</option><option value="U-10">U-10</option><option value="U-12">U-12</option><option value="U-14">U-14</option><option value="U-16">U-16</option></select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Тренер</label><input type="text" id="gm-coach" placeholder="Ткаченко О."></div>
+      <div class="form-group"><label>Макс. місць</label><input type="number" id="gm-max" placeholder="20" min="5" max="30"></div>
+    </div>
+    <div class="form-group"><label>Розклад</label><input type="text" id="gm-schedule" placeholder="Пн, Ср, Пт &mdash; 18:00"></div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('group-modal')">Скасувати</button>
+      <button class="btn btn-primary" onclick="saveGroup()"><i class="fas fa-save"></i> Зберегти</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="payment-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('payment-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-title">ОПЛАТА</div>
+    <div class="modal-sub">Додати новий платіж</div>
+    <div class="form-group"><label>Гравець *</label><input type="text" id="paym-player" placeholder="ПІБ гравця"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Сума (грн) *</label><input type="number" id="paym-amount" placeholder="1800" min="1"></div>
+      <div class="form-group"><label>Статус</label>
+        <select id="paym-status"><option value="paid">Оплачено</option><option value="debt">Борг</option><option value="partial">Частково</option></select>
+      </div>
+    </div>
+    <div class="form-group"><label>Опис</label><input type="text" id="paym-desc" placeholder="Абонемент — квітень"></div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('payment-modal')">Скасувати</button>
+      <button class="btn btn-primary" onclick="savePayment()"><i class="fas fa-save"></i> Зберегти</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAY ONLINE MODAL -->
+<div id="pay-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('pay-modal')"><i class="fas fa-times"></i></button>
+    <div class="modal-title">ОПЛАТА</div>
+    <div class="modal-sub">Онлайн-оплата абонементу</div>
+    <div style="background:rgba(0,200,83,.05);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.5rem;text-align:center">
+      <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.25rem">Сума до оплати</div>
+      <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--green)">1800 <span style="font-size:1rem">грн</span></div>
+      <div style="font-size:.8rem;color:var(--text-muted)">Абонемент квітень 2026</div>
+    </div>
+    <div class="form-group"><label>Номер картки</label><input type="text" id="pay-card" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Термін дії</label><input type="text" id="pay-exp" placeholder="MM/YY" maxlength="5"></div>
+      <div class="form-group"><label>CVV</label><input type="text" id="pay-cvv" placeholder="123" maxlength="3"></div>
+    </div>
+    <div class="form-group"><label>Ім'я на картці</label><input type="text" id="pay-name" placeholder="NATALIA PETRENKO"></div>
+    <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><i class="fas fa-lock" style="color:var(--green)"></i> Тестовий режим. Реальні дані не передаються.</div>
+    <button class="btn btn-primary" style="width:100%" onclick="processPayment()"><i class="fas fa-lock"></i> Оплатити 1800 грн</button>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div id="confirm-modal" class="modal-overlay">
+  <div class="confirm-box">
+    <h3 id="confirm-title">Підтвердження</h3>
+    <p id="confirm-msg">Ви впевнені?</p>
+    <div class="confirm-actions">
+      <button class="btn btn-outline" onclick="closeModal('confirm-modal')">Скасувати</button>
+      <button class="btn btn-danger" id="confirm-ok-btn" onclick="confirmAction()"><i class="fas fa-trash"></i> Видалити</button>
+    </div>
   </div>
 </div>
 
@@ -713,260 +851,520 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:3rem 5
   <span class="toast-icon" id="toast-icon"></span>
   <div class="toast-body"><strong id="toast-title"></strong><p id="toast-msg"></p></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+// ── EMAILJS ──
+var EMAILJS_SERVICE_ID  = 'service_zj1mdq8';
+var EMAILJS_TEMPLATE_ID = 'template_1rox8so';
+var EMAILJS_PUBLIC_KEY  = 'Junl3MaawjmISMzRQ';
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var isLoggedIn = false;
-var currentRole = null;
-var accessToken = null;
-var toastTimer = null;
-emailjs.init('Junl3MaawjmISMzRQ');
+// ── STATE ──
+var isLoggedIn = false, currentRole = null, accessToken = null, toastTimer = null;
+var pendingDeleteFn = null;
 
+// ── DEFAULT DATA ──
+var defaultPlayers = [
+  {id:1, last:'Петренко', first:'Дмитро', age:11, group:'U-12', phone:'+380671234567', email:'petrenko@example.com', pay:'paid'},
+  {id:2, last:'Коваль',   first:'Максим', age:12, group:'U-12', phone:'+380679876543', email:'', pay:'paid'},
+  {id:3, last:'Гончаренко', first:'Іван', age:13, group:'U-14', phone:'+380671112233', email:'', pay:'debt'},
+  {id:4, last:'Мороз',    first:'Андрій', age:11, group:'U-12', phone:'+380675554433', email:'', pay:'partial'},
+  {id:5, last:'Шевченко', first:'Олексій',age:14, group:'U-16', phone:'+380673456789', email:'', pay:'paid'}
+];
+var defaultCoaches = [
+  {id:1, last:'Ткаченко', first:'Олег',   lic:'UEFA B', status:'active',   phone:'+380671111111', groups:'U-12, U-14'},
+  {id:2, last:'Коваль',   first:'Марія',  lic:'UEFA C', status:'active',   phone:'+380672222222', groups:'U-10, U-12'},
+  {id:3, last:'Петренко', first:'Андрій', lic:'UEFA C', status:'active',   phone:'+380673333333', groups:'U-6, U-8'},
+  {id:4, last:'Мельник',  first:'Сергій', lic:'UEFA A', status:'analyst',  phone:'+380674444444', groups:'Всі групи'}
+];
+var defaultGroups = [
+  {id:1, name:'Малюки',      cat:'U-8',  coach:'Петренко А.', max:22, schedule:'Пн, Ср, Пт — 16:00', count:12},
+  {id:2, name:'Перспектива', cat:'U-10', coach:'Коваль М.',   max:24, schedule:'Пн, Ср, Пт — 17:00', count:11},
+  {id:3, name:'Надія',       cat:'U-12', coach:'Ткаченко О.', max:26, schedule:'Пн-Пт — 18:00',      count:16},
+  {id:4, name:'Еліта',       cat:'U-14', coach:'Ткаченко О.', max:28, schedule:'Пн-Пт — 19:00',      count:18}
+];
+var defaultPayments = [
+  {id:1, player:'Петренко Дмитро', desc:'Абонемент — березень', amount:1800, status:'paid',    date:'01.03.2026'},
+  {id:2, player:'Коваль Максим',   desc:'Абонемент — березень', amount:1800, status:'paid',    date:'01.03.2026'},
+  {id:3, player:'Гончаренко Іван', desc:'Абонемент — березень', amount:1800, status:'debt',    date:'01.03.2026'},
+  {id:4, player:'Мороз Андрій',    desc:'Абонемент — березень', amount:900,  status:'partial', date:'05.03.2026'}
+];
+
+// ── STORAGE HELPERS ──
+function getData(key, def) { try { var d=localStorage.getItem(key); return d ? JSON.parse(d) : def; } catch(e){return def;} }
+function setData(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+function getPlayers()  { return getData('ffa_players',  defaultPlayers); }
+function getCoaches()  { return getData('ffa_coaches',  defaultCoaches); }
+function getGroups()   { return getData('ffa_groups',   defaultGroups); }
+function getPayments() { return getData('ffa_payments', defaultPayments); }
+function getNotifsSent() { return getData('ffa_notifs_sent', []); }
+function getNotes()    { return getData('ffa_notes', []); }
+function getNextId(arr) { return arr.length ? Math.max.apply(null, arr.map(function(x){return x.id||0;})) + 1 : 1; }
+
+// ── TOAST ──
 function showToast(title, msg, type) {
   if (!type) type = 'success';
-  var icons = { success: '✅', error: '❌', info: 'ℹ️', warning: '⚠️' };
+  var icons = {success:'✅', error:'❌', info:'ℹ️', warning:'⚠️'};
   var t = document.getElementById('toast');
-  document.getElementById('toast-icon').textContent = icons[type] || icons.info;
+  document.getElementById('toast-icon').textContent = icons[type]||icons.info;
   document.getElementById('toast-title').textContent = title;
   document.getElementById('toast-msg').textContent = msg;
   t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(function() { t.classList.remove('show'); }, 3500);
+  toastTimer = setTimeout(function(){t.classList.remove('show');}, 3500);
 }
 
-function openLogin() {
-  document.getElementById('login-modal').classList.add('active');
-}
+// ── MODAL HELPERS ──
+function openModal(id) { document.getElementById(id).classList.add('active'); }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+function openLogin() { openModal('login-modal'); }
+function closeLogin() { closeModal('login-modal'); }
 
-function closeLogin() {
-  document.getElementById('login-modal').classList.remove('active');
-}
-
+// ── NAVIGATION ──
 function showPage(id, btn) {
-  var dashPages = ['parent-dash', 'coach-dash', 'admin-dash'];
-  if (dashPages.indexOf(id) !== -1 && !isLoggedIn) { openLogin(); return; }
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  var dash = ['parent-dash','coach-dash','admin-dash'];
+  if (dash.indexOf(id) !== -1 && !isLoggedIn) { openLogin(); return; }
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.getElementById(id).classList.add('active');
-  if (btn) {
-    document.querySelectorAll('.nav-links button').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-  }
-  var isDash = dashPages.indexOf(id) !== -1;
-  var footer = document.getElementById('main-footer');
-  var footerBottom = document.getElementById('footer-bottom');
-  if (footer) footer.style.display = isDash ? 'none' : 'grid';
-  if (footerBottom) footerBottom.style.display = isDash ? 'none' : 'flex';
-  window.scrollTo(0, 0);
+  if (btn) { document.querySelectorAll('.nav-links button').forEach(function(b){b.classList.remove('active');}); btn.classList.add('active'); }
+  var isDash = dash.indexOf(id) !== -1;
+  var f = document.getElementById('main-footer'), fb = document.getElementById('footer-bottom');
+  if (f) f.style.display = isDash ? 'none' : 'grid';
+  if (fb) fb.style.display = isDash ? 'none' : 'flex';
+  window.scrollTo(0,0);
 }
-
 function showSub(id, btn) {
   var container = document.getElementById(id).closest('.dash-main');
-  container.querySelectorAll('.dash-subpage').forEach(function(p) { p.classList.remove('active'); });
+  container.querySelectorAll('.dash-subpage').forEach(function(p){p.classList.remove('active');});
   document.getElementById(id).classList.add('active');
-  if (btn) {
-    btn.closest('aside').querySelectorAll('.sidebar-item').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-  }
-  if (id === 'a-trials') { renderTrialsTable(); }
+  if (btn) { btn.closest('aside').querySelectorAll('.sidebar-item').forEach(function(b){b.classList.remove('active');}); btn.classList.add('active'); }
+  if (id === 'a-trials') renderTrialsTable();
+  if (id === 'a-players') renderPlayers();
+  if (id === 'a-coaches') renderCoaches();
+  if (id === 'a-groups') renderAdminGroups();
+  if (id === 'a-payments') renderPayments();
+  if (id === 'a-overview') updateOverviewStats();
+  if (id === 'a-notifs') renderNotifsSent();
+  if (id === 'c-notes') renderNotes();
 }
 
+// ── AUTH ──
 function doLogin() {
   var email = document.getElementById('l-email').value;
   var pass = document.getElementById('l-pass').value;
   var role = document.getElementById('l-role').value;
-  var accounts = {
-  parent: { email: 'petrenko', pass: 'parent123' },
-  coach:  { email: 'tkachenko', pass: 'coach123'  },
-  admin:  { email: 'admin',     pass: 'admin123'  }
-};
+  var accounts = {parent:{email:'petrenko',pass:'parent123'}, coach:{email:'tkachenko',pass:'coach123'}, admin:{email:'admin',pass:'admin123'}};
   if (accounts[role] && email === accounts[role].email && pass === accounts[role].pass) {
-    isLoggedIn = true;
-    currentRole = role;
-    accessToken = 'demo-jwt-' + Date.now();
+    isLoggedIn = true; currentRole = role; accessToken = 'demo-jwt-' + Date.now();
     closeLogin();
     showToast('Вхід успішний', 'Ласкаво просимо!', 'success');
-    var loginBtn = document.getElementById('login-btn');
-    loginBtn.textContent = 'Кабінет';
-    loginBtn.onclick = function() { showPage(role + '-dash', null); };
-    showPage(role + '-dash', null);
-    if (role === 'admin') { setTimeout(buildIncomeChart, 100); setTimeout(function(){ var t=getTrials(); var b=document.getElementById('trials-badge'); if(b&&t.length){b.textContent=t.length;b.style.display='inline';} }, 200); }
-    if (role === 'coach') { setTimeout(buildAttendance, 100); }
-  } else {
-    showToast('Помилка', 'Невірний email або пароль', 'error');
-  }
+    var lb = document.getElementById('login-btn');
+    lb.textContent = 'Кабінет';
+    lb.onclick = function(){showPage(role+'-dash',null);};
+    showPage(role+'-dash', null);
+    if (role === 'admin') { setTimeout(buildIncomeChart, 100); setTimeout(updateOverviewStats, 150); setTimeout(function(){var t=getTrials(),b=document.getElementById('trials-badge');if(b&&t.length){b.textContent=t.length;b.style.display='inline';}},200); }
+    if (role === 'coach') setTimeout(buildAttendance, 100);
+  } else { showToast('Помилка','Невірний логін або пароль','error'); }
 }
-
 function logout() {
-  isLoggedIn = false;
-  currentRole = null;
-  accessToken = null;
-  var loginBtn = document.getElementById('login-btn');
-  loginBtn.textContent = 'Кабінет';
-  loginBtn.onclick = function() { openLogin(); };
+  isLoggedIn = false; currentRole = null; accessToken = null;
+  var lb = document.getElementById('login-btn');
+  lb.textContent = 'Кабінет'; lb.onclick = function(){openLogin();};
   showPage('home', document.querySelector('.nav-links button'));
-  showToast('Вихід', 'Ви вийшли з системи', 'info');
+  showToast('Вихід','Ви вийшли з системи','info');
 }
 
-function filterGroups(age, btn) {
-  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-  document.querySelectorAll('.group-card').forEach(function(c) {
-    c.style.display = (age === 'all' || c.dataset.age === age) ? 'block' : 'none';
+// ── OVERVIEW STATS ──
+function updateOverviewStats() {
+  var pl = getPlayers(), co = getCoaches(), gr = getGroups(), pa = getPayments();
+  var s = document.getElementById('stat-players'); if(s) s.textContent = pl.length;
+  s = document.getElementById('stat-coaches'); if(s) s.textContent = co.length;
+  s = document.getElementById('stat-groups'); if(s) s.textContent = gr.length;
+  var debt = pl.filter(function(p){return p.pay==='debt';}).length;
+  s = document.getElementById('stat-debtors'); if(s) s.textContent = debt;
+}
+
+// ── PLAYERS CRUD ──
+function renderPlayers() {
+  var players = getPlayers();
+  var search = (document.getElementById('player-search')||{}).value || '';
+  var fg = (document.getElementById('player-filter-group')||{}).value || '';
+  var fp = (document.getElementById('player-filter-pay')||{}).value || '';
+  var filtered = players.filter(function(p) {
+    var name = p.last + ' ' + p.first;
+    var matchS = !search || name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    var matchG = !fg || p.group === fg;
+    var matchP = !fp || p.pay === fp;
+    return matchS && matchG && matchP;
   });
+  var payLabels = {paid:'<span class="badge badge-green">Оплачено</span>', debt:'<span class="badge badge-red">Борг</span>', partial:'<span class="badge badge-yellow">Частково</span>'};
+  var html = filtered.map(function(p, i) {
+    return '<tr><td>#' + String(p.id).padStart(3,'0') + '</td>' +
+      '<td><strong>' + p.last + ' ' + p.first + '</strong></td>' +
+      '<td>' + p.age + '</td><td>' + p.group + '</td>' +
+      '<td>' + (payLabels[p.pay]||p.pay) + '</td>' +
+      '<td>' + (p.phone||'&mdash;') + '</td>' +
+      '<td style="display:flex;gap:.5rem;align-items:center">' +
+      '<button style="background:none;border:none;color:var(--green);cursor:pointer" title="Редагувати" onclick="editPlayer(' + p.id + ')"><i class="fas fa-edit"></i></button>' +
+      '<button style="background:none;border:none;color:#f44336;cursor:pointer" title="Видалити" onclick="deletePlayer(' + p.id + ')"><i class="fas fa-trash"></i></button>' +
+      '</td></tr>';
+  }).join('');
+  var tb = document.getElementById('players-tbody');
+  if (tb) tb.innerHTML = html || '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:2rem">Гравців не знайдено</td></tr>';
+}
+function openPlayerModal(id) {
+  document.getElementById('player-modal-title').textContent = id ? 'РЕДАГУВАННЯ' : 'НОВИЙ ГРАВЕЦЬ';
+  document.getElementById('player-modal-sub').textContent = id ? 'Змініть дані гравця' : 'Заповніть дані нового гравця';
+  document.getElementById('pm-id').value = id || '';
+  if (id) {
+    var p = getPlayers().find(function(x){return x.id===id;});
+    if (p) { document.getElementById('pm-last').value=p.last; document.getElementById('pm-first').value=p.first; document.getElementById('pm-age').value=p.age; document.getElementById('pm-group').value=p.group; document.getElementById('pm-phone').value=p.phone||''; document.getElementById('pm-pay').value=p.pay; document.getElementById('pm-email').value=p.email||''; }
+  } else { ['pm-last','pm-first','pm-age','pm-phone','pm-email'].forEach(function(f){document.getElementById(f).value='';}); document.getElementById('pm-group').value='U-12'; document.getElementById('pm-pay').value='paid'; }
+  openModal('player-modal');
+}
+function savePlayer() {
+  var last=document.getElementById('pm-last').value.trim(), first=document.getElementById('pm-first').value.trim(), age=document.getElementById('pm-age').value.trim();
+  if (!last||!first||!age) { showToast('Помилка','Заповніть обов\'язкові поля','error'); return; }
+  var players = getPlayers();
+  var id = parseInt(document.getElementById('pm-id').value)||0;
+  var obj = {id:id||getNextId(players), last:last, first:first, age:parseInt(age), group:document.getElementById('pm-group').value, phone:document.getElementById('pm-phone').value.trim(), email:document.getElementById('pm-email').value.trim(), pay:document.getElementById('pm-pay').value};
+  if (id) { var idx=players.findIndex(function(x){return x.id===id;}); if(idx!==-1) players[idx]=obj; }
+  else players.push(obj);
+  setData('ffa_players', players);
+  closeModal('player-modal');
+  renderPlayers(); updateOverviewStats();
+  showToast(id?'Оновлено':'Додано', (id?'Дані гравця оновлено':'Гравця додано') + ': ' + last + ' ' + first, 'success');
+  addActivity((id?'Оновлено гравця: ':'Додано гравця: ') + last + ' ' + first);
+}
+function editPlayer(id) { openPlayerModal(id); }
+function deletePlayer(id) {
+  var p = getPlayers().find(function(x){return x.id===id;});
+  document.getElementById('confirm-title').textContent = 'Видалити гравця?';
+  document.getElementById('confirm-msg').textContent = 'Ви впевнені, що хочете видалити ' + (p?p.last+' '+p.first:'') + '? Цю дію не можна скасувати.';
+  pendingDeleteFn = function() { var pl=getPlayers().filter(function(x){return x.id!==id;}); setData('ffa_players',pl); renderPlayers(); updateOverviewStats(); showToast('Видалено','Гравця видалено','info'); addActivity('Видалено гравця: '+(p?p.last+' '+p.first:'')); };
+  openModal('confirm-modal');
+}
+function confirmAction() { if (pendingDeleteFn) { pendingDeleteFn(); pendingDeleteFn=null; } closeModal('confirm-modal'); }
+
+// ── COACHES CRUD ──
+function renderCoaches() {
+  var coaches = getCoaches();
+  var search = (document.getElementById('coach-search')||{}).value || '';
+  var filtered = coaches.filter(function(c){ return !search || (c.last+' '+c.first).toLowerCase().indexOf(search.toLowerCase())!==-1; });
+  var statusMap = {active:'<span class="badge badge-green">Активний</span>', analyst:'<span class="badge badge-yellow">Аналітик</span>', inactive:'<span class="badge badge-red">Неактивний</span>'};
+  var html = filtered.map(function(c) {
+    return '<tr><td><strong>' + c.last + ' ' + c.first + '</strong></td>' +
+      '<td>' + c.lic + '</td><td>' + (c.groups||'&mdash;') + '</td>' +
+      '<td>' + (c.phone||'&mdash;') + '</td>' +
+      '<td>' + (statusMap[c.status]||c.status) + '</td>' +
+      '<td style="display:flex;gap:.5rem">' +
+      '<button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="editCoach(' + c.id + ')"><i class="fas fa-edit"></i></button>' +
+      '<button style="background:none;border:none;color:#f44336;cursor:pointer" onclick="deleteCoach(' + c.id + ')"><i class="fas fa-trash"></i></button>' +
+      '</td></tr>';
+  }).join('');
+  var tb = document.getElementById('coaches-tbody');
+  if (tb) tb.innerHTML = html || '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">Тренерів не знайдено</td></tr>';
+}
+function openCoachModal(id) {
+  document.getElementById('coach-modal-title').textContent = id ? 'РЕДАГУВАННЯ' : 'НОВИЙ ТРЕНЕР';
+  document.getElementById('cm-id').value = id || '';
+  if (id) {
+    var c = getCoaches().find(function(x){return x.id===id;});
+    if (c) { document.getElementById('cm-last').value=c.last; document.getElementById('cm-first').value=c.first; document.getElementById('cm-lic').value=c.lic; document.getElementById('cm-status').value=c.status; document.getElementById('cm-phone').value=c.phone||''; document.getElementById('cm-groups').value=c.groups||''; }
+  } else { ['cm-last','cm-first','cm-phone','cm-groups'].forEach(function(f){document.getElementById(f).value='';}); document.getElementById('cm-lic').value='UEFA C'; document.getElementById('cm-status').value='active'; }
+  openModal('coach-modal');
+}
+function saveCoach() {
+  var last=document.getElementById('cm-last').value.trim(), first=document.getElementById('cm-first').value.trim();
+  if (!last||!first) { showToast('Помилка','Заповніть ім\'я та прізвище','error'); return; }
+  var coaches = getCoaches();
+  var id = parseInt(document.getElementById('cm-id').value)||0;
+  var obj = {id:id||getNextId(coaches), last:last, first:first, lic:document.getElementById('cm-lic').value, status:document.getElementById('cm-status').value, phone:document.getElementById('cm-phone').value.trim(), groups:document.getElementById('cm-groups').value.trim()};
+  if (id) { var idx=coaches.findIndex(function(x){return x.id===id;}); if(idx!==-1) coaches[idx]=obj; }
+  else coaches.push(obj);
+  setData('ffa_coaches', coaches);
+  closeModal('coach-modal');
+  renderCoaches(); updateOverviewStats();
+  showToast(id?'Оновлено':'Додано', last+' '+first, 'success');
+  addActivity((id?'Оновлено тренера: ':'Додано тренера: ')+last+' '+first);
+}
+function editCoach(id) { openCoachModal(id); }
+function deleteCoach(id) {
+  var c = getCoaches().find(function(x){return x.id===id;});
+  document.getElementById('confirm-title').textContent = 'Видалити тренера?';
+  document.getElementById('confirm-msg').textContent = 'Видалити ' + (c?c.last+' '+c.first:'') + '?';
+  pendingDeleteFn = function() { var co=getCoaches().filter(function(x){return x.id!==id;}); setData('ffa_coaches',co); renderCoaches(); updateOverviewStats(); showToast('Видалено','','info'); addActivity('Видалено тренера: '+(c?c.last+' '+c.first:'')); };
+  openModal('confirm-modal');
 }
 
-var EMAILJS_SERVICE_ID  = 'service_zj1mdq8';
-var EMAILJS_TEMPLATE_ID = 'template_1rox8so';
-var EMAILJS_PUBLIC_KEY  = 'Junl3MaawjmISMzRQ';
-
-function getTrials() {
-  try { return JSON.parse(localStorage.getItem('ffa_trials') || '[]'); } catch(e) { return []; }
+// ── GROUPS CRUD ──
+function renderAdminGroups() {
+  var groups = getGroups();
+  var players = getPlayers();
+  var html = groups.map(function(g) {
+    var count = players.filter(function(p){return p.group===g.cat;}).length;
+    var pct = g.max ? Math.round(count/g.max*100) : 0;
+    return '<div class="dash-card">' +
+      '<h3>' + g.cat + ' ' + g.name + '</h3>' +
+      '<p style="color:var(--text-muted);margin-bottom:.5rem">Тренер: ' + (g.coach||'&mdash;') + '</p>' +
+      '<p style="color:var(--text-muted);margin-bottom:.5rem">Гравців: ' + count + ' / ' + g.max + '</p>' +
+      '<p style="color:var(--text-muted);margin-bottom:1rem;font-size:.85rem">' + (g.schedule||'') + '</p>' +
+      '<div class="progress-track" style="margin-bottom:1rem"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+      '<div style="display:flex;gap:.5rem">' +
+      '<button class="btn btn-outline" style="flex:1;padding:.5rem" onclick="editGroup(' + g.id + ')"><i class="fas fa-edit"></i> Редагувати</button>' +
+      '<button class="btn btn-danger" style="padding:.5rem .75rem" onclick="deleteGroup(' + g.id + ')"><i class="fas fa-trash"></i></button>' +
+      '</div></div>';
+  }).join('');
+  var grid = document.getElementById('admin-groups-grid');
+  if (grid) grid.innerHTML = html || '<p style="color:var(--text-muted)">Груп ще немає.</p>';
+  updateOverviewStats();
 }
+function openGroupModal(id) {
+  document.getElementById('group-modal-title').textContent = id ? 'РЕДАГУВАННЯ ГРУПИ' : 'НОВА ГРУПА';
+  document.getElementById('gm-id').value = id || '';
+  if (id) {
+    var g = getGroups().find(function(x){return x.id===id;});
+    if (g) { document.getElementById('gm-name').value=g.name; document.getElementById('gm-cat').value=g.cat; document.getElementById('gm-coach').value=g.coach||''; document.getElementById('gm-max').value=g.max||20; document.getElementById('gm-schedule').value=g.schedule||''; }
+  } else { ['gm-name','gm-coach','gm-schedule'].forEach(function(f){document.getElementById(f).value='';}); document.getElementById('gm-cat').value='U-12'; document.getElementById('gm-max').value=20; }
+  openModal('group-modal');
+}
+function saveGroup() {
+  var name=document.getElementById('gm-name').value.trim(), cat=document.getElementById('gm-cat').value;
+  if (!name) { showToast('Помилка','Введіть назву групи','error'); return; }
+  var groups = getGroups();
+  var id = parseInt(document.getElementById('gm-id').value)||0;
+  var obj = {id:id||getNextId(groups), name:name, cat:cat, coach:document.getElementById('gm-coach').value.trim(), max:parseInt(document.getElementById('gm-max').value)||20, schedule:document.getElementById('gm-schedule').value.trim()};
+  if (id) { var idx=groups.findIndex(function(x){return x.id===id;}); if(idx!==-1) groups[idx]=obj; }
+  else groups.push(obj);
+  setData('ffa_groups', groups);
+  closeModal('group-modal');
+  renderAdminGroups();
+  showToast(id?'Оновлено':'Додано', cat+' '+name, 'success');
+  addActivity((id?'Оновлено групу: ':'Додано групу: ')+cat+' '+name);
+}
+function editGroup(id) { openGroupModal(id); }
+function deleteGroup(id) {
+  var g = getGroups().find(function(x){return x.id===id;});
+  document.getElementById('confirm-title').textContent = 'Видалити групу?';
+  document.getElementById('confirm-msg').textContent = 'Видалити групу ' + (g?g.cat+' '+g.name:'') + '?';
+  pendingDeleteFn = function() { var gr=getGroups().filter(function(x){return x.id!==id;}); setData('ffa_groups',gr); renderAdminGroups(); showToast('Видалено','Групу видалено','info'); addActivity('Видалено групу: '+(g?g.cat+' '+g.name:'')); };
+  openModal('confirm-modal');
+}
+
+// ── PAYMENTS CRUD ──
+function renderPayments() {
+  var payments = getPayments();
+  var paid=0, debt=0, total=0;
+  payments.forEach(function(p){ if(p.status==='paid'){paid++;total+=parseInt(p.amount)||0;} else if(p.status==='debt') debt++; });
+  var ps=document.getElementById('pay-count-paid'), ds=document.getElementById('pay-count-debt'), ts=document.getElementById('pay-total');
+  if(ps) ps.textContent=paid; if(ds) ds.textContent=debt; if(ts) ts.textContent=total.toLocaleString('uk-UA');
+  var statusMap = {paid:'<span class="badge badge-green">Оплачено</span>', debt:'<span class="badge badge-red">Борг</span>', partial:'<span class="badge badge-yellow">Частково</span>'};
+  var html = payments.slice().reverse().map(function(p) {
+    return '<tr><td>' + (p.date||'&mdash;') + '</td><td>' + p.player + '</td><td>' + (p.desc||'&mdash;') + '</td>' +
+      '<td>' + (parseInt(p.amount)||0).toLocaleString('uk-UA') + ' грн</td>' +
+      '<td>' + (statusMap[p.status]||p.status) + '</td>' +
+      '<td><button style="background:none;border:none;color:#f44336;cursor:pointer" onclick="deletePayment(' + p.id + ')"><i class="fas fa-trash"></i></button></td></tr>';
+  }).join('');
+  var tb = document.getElementById('payments-tbody');
+  if (tb) tb.innerHTML = html || '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">Платежів ще немає</td></tr>';
+}
+function openPaymentModal() { document.getElementById('paym-player').value=''; document.getElementById('paym-amount').value='1800'; document.getElementById('paym-status').value='paid'; document.getElementById('paym-desc').value=''; openModal('payment-modal'); }
+function savePayment() {
+  var player=document.getElementById('paym-player').value.trim(), amount=document.getElementById('paym-amount').value.trim();
+  if (!player||!amount) { showToast('Помилка','Заповніть обов\'язкові поля','error'); return; }
+  var payments = getPayments();
+  var now = new Date(); var date = String(now.getDate()).padStart(2,'0')+'.'+String(now.getMonth()+1).padStart(2,'0')+'.'+now.getFullYear();
+  payments.push({id:getNextId(payments), player:player, amount:parseInt(amount), status:document.getElementById('paym-status').value, desc:document.getElementById('paym-desc').value.trim(), date:date});
+  setData('ffa_payments', payments);
+  closeModal('payment-modal');
+  renderPayments();
+  showToast('Додано','Платіж збережено','success');
+  addActivity('Додано платіж: '+player+' '+amount+' грн');
+}
+function deletePayment(id) {
+  document.getElementById('confirm-title').textContent = 'Видалити платіж?';
+  document.getElementById('confirm-msg').textContent = 'Ви впевнені?';
+  pendingDeleteFn = function() { var pa=getPayments().filter(function(x){return x.id!==id;}); setData('ffa_payments',pa); renderPayments(); showToast('Видалено','','info'); };
+  openModal('confirm-modal');
+}
+
+// ── NOTIFS SENT ──
+function renderNotifsSent() {
+  var notifs = getNotifsSent();
+  var list = document.getElementById('notifs-sent-list');
+  if (!list) return;
+  if (!notifs.length) { list.innerHTML='<p style="color:var(--text-muted);font-size:.9rem">Сповіщень ще немає.</p>'; return; }
+  list.innerHTML = notifs.slice().reverse().map(function(n) {
+    return '<div class="notif-item"><div class="notif-dot"></div><div><strong>' + n.title + '</strong><p>' + n.text + '</p><time>' + n.to + ' &middot; ' + n.date + '</time></div></div>';
+  }).join('');
+}
+function sendNotif() {
+  var to=document.getElementById('notif-to').value, title=document.getElementById('notif-title').value.trim(), text=document.getElementById('notif-text').value.trim();
+  if (!title||!text) { showToast('Помилка','Заповніть тему та текст','error'); return; }
+  var notifs = getNotifsSent();
+  var now = new Date(); var date = now.toLocaleString('uk-UA');
+  notifs.push({to:to, title:title, text:text, date:date});
+  setData('ffa_notifs_sent', notifs);
+  document.getElementById('notif-title').value=''; document.getElementById('notif-text').value='';
+  renderNotifsSent();
+  showToast('Надіслано','Розсилку виконано','success');
+  addActivity('Надіслано розсилку: '+title);
+}
+
+// ── NOTES (coach) ──
+function saveNote() {
+  var player=document.getElementById('note-player').value, date=document.getElementById('note-date').value, text=document.getElementById('note-text').value.trim();
+  if (!text) { showToast('Помилка','Введіть текст нотатки','error'); return; }
+  var notes = getNotes();
+  notes.push({id:getNextId(notes), player:player, date:date, text:text});
+  setData('ffa_notes', notes);
+  document.getElementById('note-text').value='';
+  renderNotes();
+  showToast('Збережено','Нотатку додано','success');
+}
+function renderNotes() {
+  var notes = getNotes();
+  var list = document.getElementById('notes-list');
+  if (!list) return;
+  if (!notes.length) { list.innerHTML='<p style="color:var(--text-muted);font-size:.9rem">Нотаток ще немає.</p>'; return; }
+  list.innerHTML = notes.slice().reverse().map(function(n) {
+    return '<div class="notif-item"><div class="notif-dot"></div><div><strong>' + n.player + ' &middot; ' + (n.date||'') + '</strong><p>' + n.text + '</p></div>' +
+      '<button style="background:none;border:none;color:#f44336;cursor:pointer;flex-shrink:0" onclick="deleteNote(' + n.id + ')"><i class="fas fa-trash"></i></button></div>';
+  }).join('');
+}
+function deleteNote(id) { var notes=getNotes().filter(function(x){return x.id!==id;}); setData('ffa_notes',notes); renderNotes(); showToast('Видалено','Нотатку видалено','info'); }
+
+// ── ACTIVITY LOG ──
+function addActivity(msg) {
+  var log = document.getElementById('activity-log');
+  if (!log) return;
+  var now = new Date();
+  var time = String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+  var item = '<div class="notif-item"><div class="notif-dot"></div><div><strong>' + msg + '</strong><time>' + time + '</time></div></div>';
+  log.innerHTML = item + log.innerHTML;
+}
+
+// ── PAYMENT ONLINE ──
+function openPayModal() { openModal('pay-modal'); }
+function formatCard(input) {
+  var v = input.value.replace(/\D/g,'').substring(0,16);
+  var parts = [];
+  for (var i=0; i<v.length; i+=4) parts.push(v.substring(i,i+4));
+  input.value = parts.join(' ');
+}
+function processPayment() {
+  var card=document.getElementById('pay-card').value.trim(), exp=document.getElementById('pay-exp').value.trim(), cvv=document.getElementById('pay-cvv').value.trim(), name=document.getElementById('pay-name').value.trim();
+  if (!card||!exp||!cvv||!name) { showToast('Помилка','Заповніть всі поля картки','error'); return; }
+  var lb = document.getElementById('loading-bar'); lb.classList.add('active');
+  setTimeout(function() {
+    lb.classList.remove('active'); closeModal('pay-modal');
+    showToast('Оплата успішна!', 'Абонемент квітень 2026 сплачено. Дякуємо!', 'success');
+    var payments = getPayments();
+    var now = new Date(); var date = String(now.getDate()).padStart(2,'0')+'.'+String(now.getMonth()+1).padStart(2,'0')+'.'+now.getFullYear();
+    payments.push({id:getNextId(payments), player:'Петренко Дмитро', amount:1800, status:'paid', desc:'Абонемент — квітень', date:date});
+    setData('ffa_payments', payments);
+  }, 1500);
+}
+
+// ── TRIALS ──
+function getTrials() { try{return JSON.parse(localStorage.getItem('ffa_trials')||'[]');}catch(e){return[];} }
 function saveTrials(arr) { localStorage.setItem('ffa_trials', JSON.stringify(arr)); }
 function clearTrials() {
   if (!confirm('Видалити всі заявки?')) return;
-  localStorage.removeItem('ffa_trials');
-  renderTrialsTable();
-  showToast('Очищено', 'Всі заявки видалено', 'info');
+  localStorage.removeItem('ffa_trials'); renderTrialsTable();
+  showToast('Очищено','Всі заявки видалено','info');
 }
 function toggleTrialStatus(idx) {
-  var trials = getTrials();
-  if (trials[idx]) { trials[idx].status = trials[idx].status === 'done' ? 'new' : 'done'; saveTrials(trials); renderTrialsTable(); }
+  var trials=getTrials(); if(trials[idx]){trials[idx].status=trials[idx].status==='done'?'new':'done';saveTrials(trials);renderTrialsTable();}
 }
 function renderTrialsTable() {
-  var trials = getTrials();
-  var badge = document.getElementById('trials-badge');
-  var total = document.getElementById('t-total');
-  var todayEl = document.getElementById('t-today');
-  var doneEl = document.getElementById('t-done');
-  var wrap = document.getElementById('trials-table-wrap');
+  var trials=getTrials(), badge=document.getElementById('trials-badge');
+  var total=document.getElementById('t-total'), todayEl=document.getElementById('t-today'), doneEl=document.getElementById('t-done');
+  var wrap=document.getElementById('trials-table-wrap');
   if (!wrap) return;
-  var today = new Date().toDateString();
-  var todayCount = trials.filter(function(t) { return new Date(t.date).toDateString() === today; }).length;
-  var doneCount = trials.filter(function(t) { return t.status === 'done'; }).length;
-  if (total) total.textContent = trials.length;
-  if (todayEl) todayEl.textContent = todayCount;
-  if (doneEl) doneEl.textContent = doneCount;
-  if (badge) { badge.textContent = trials.length; badge.style.display = trials.length ? 'inline' : 'none'; }
-  if (!trials.length) { wrap.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:2rem">Заявок ще немає.</p>'; return; }
-  var expMap = { none: 'Немає', little: 'До 1 року', some: '1-3 роки', much: '3+ роки' };
-  var rows = trials.slice().reverse().map(function(t, idx) {
-    var realIdx = trials.length - 1 - idx;
-    var statusBadge = t.status === 'done' ? '<span class="badge badge-green">Оброблено</span>' : '<span class="badge badge-yellow">Нова</span>';
-    return '<tr><td>' + new Date(t.date).toLocaleDateString('uk-UA') + '</td><td><strong>' + t.child + '</strong><br><small style="color:var(--text-muted)">' + t.age + ' років</small></td><td>' + (t.parent||'—') + '</td><td>' + t.phone + '</td><td>' + (t.email||'—') + '</td><td>' + (expMap[t.exp]||t.exp) + '</td><td>' + (t.comment||'—') + '</td><td>' + statusBadge + '</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="toggleTrialStatus(' + realIdx + ')"><i class="fas fa-check-circle"></i></button></td></tr>';
+  var today=new Date().toDateString();
+  var todayCount=trials.filter(function(t){return new Date(t.date).toDateString()===today;}).length;
+  var doneCount=trials.filter(function(t){return t.status==='done';}).length;
+  if(total) total.textContent=trials.length; if(todayEl) todayEl.textContent=todayCount; if(doneEl) doneEl.textContent=doneCount;
+  if(badge){badge.textContent=trials.length;badge.style.display=trials.length?'inline':'none';}
+  if(!trials.length){wrap.innerHTML='<p style="color:var(--text-muted);text-align:center;padding:2rem">Заявок ще немає.</p>';return;}
+  var expMap={none:'Немає',little:'До 1 року',some:'1-3 роки',much:'3+ роки'};
+  var rows=trials.slice().reverse().map(function(t,idx){
+    var realIdx=trials.length-1-idx;
+    var statusBadge=t.status==='done'?'<span class="badge badge-green">Оброблено</span>':'<span class="badge badge-yellow">Нова</span>';
+    return '<tr><td>'+new Date(t.date).toLocaleDateString('uk-UA')+'</td><td><strong>'+t.child+'</strong><br><small style="color:var(--text-muted)">'+t.age+' років</small></td><td>'+(t.parent||'—')+'</td><td>'+t.phone+'</td><td>'+(t.email||'—')+'</td><td>'+(expMap[t.exp]||t.exp)+'</td><td>'+(t.comment||'—')+'</td><td>'+statusBadge+'</td><td><button style="background:none;border:none;color:var(--green);cursor:pointer" onclick="toggleTrialStatus('+realIdx+')"><i class="fas fa-check-circle"></i></button></td></tr>';
   }).join('');
-  wrap.innerHTML = '<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Дата</th><th>Дитина</th><th>Батьки</th><th>Телефон</th><th>Email</th><th>Досвід</th><th>Коментар</th><th>Статус</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+  wrap.innerHTML='<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Дата</th><th>Дитина</th><th>Батьки</th><th>Телефон</th><th>Email</th><th>Досвід</th><th>Коментар</th><th>Статус</th><th></th></tr></thead><tbody>'+rows+'</tbody></table></div>';
 }
+
+// ── TRIAL FORM ──
 function submitTrial() {
-  var child   = document.getElementById('f-child').value.trim();
-  var age     = document.getElementById('f-age').value.trim();
-  var parent  = document.getElementById('f-parent').value.trim();
-  var phone   = document.getElementById('f-phone').value.trim();
-  var email   = document.getElementById('f-email').value.trim();
-  var exp     = document.getElementById('f-exp').value;
-  var comment = document.getElementById('f-comment').value.trim();
-  if (!child || !age || !phone) { showToast('Помилка', 'Заповніть всі обов\'язкові поля', 'error'); return; }
-  var trial = { child:child, age:age, parent:parent, phone:phone, email:email, exp:exp, comment:comment, date:new Date().toISOString(), status:'new' };
-  var trials = getTrials(); trials.push(trial); saveTrials(trials);
-  var lb = document.getElementById('loading-bar'); lb.classList.add('active');
+  var child=document.getElementById('f-child').value.trim(), age=document.getElementById('f-age').value.trim();
+  var parent=document.getElementById('f-parent').value.trim(), phone=document.getElementById('f-phone').value.trim();
+  var email=document.getElementById('f-email').value.trim(), exp=document.getElementById('f-exp').value;
+  var comment=document.getElementById('f-comment').value.trim();
+  if (!child||!age||!phone){showToast('Помилка','Заповніть всі обов\'язкові поля','error');return;}
+  var trial={child:child,age:age,parent:parent,phone:phone,email:email,exp:exp,comment:comment,date:new Date().toISOString(),status:'new'};
+  var trials=getTrials(); trials.push(trial); saveTrials(trials);
+  var lb=document.getElementById('loading-bar'); lb.classList.add('active');
   try {
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    child_name:  child,
-    child_age:   age,
-    parent_name: parent,
-    phone:       phone,
-    email:       email || 'не вказано',
-    experience:  exp,
-    comment:     comment || 'немає',
-    date:        new Date().toLocaleString('uk-UA')
-  }).then(function() {
-    lb.classList.remove('active');
-    showToast('Надіслано!', 'Заявку збережено та відправлено на email', 'success');
-  }, function(err) {
-    console.error('EmailJS error:', JSON.stringify(err));
-    lb.classList.remove('active');
-    showToast('Збережено!', 'Заявка в адмін-панелі', 'warning');
-  });
-} catch(e) {
-  console.error('EmailJS catch:', e);
-  lb.classList.remove('active');
-  showToast('Збережено!', 'Заявка в адмін-панелі', 'warning');
-}
-  ['f-child','f-age','f-parent','f-phone','f-email','f-comment'].forEach(function(fid){ var el=document.getElementById(fid); if(el) el.value=''; });
-  document.getElementById('f-exp').value = 'none';
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {child_name:child,child_age:age,parent_name:parent,phone:phone,email:email||'не вказано',experience:exp,comment:comment||'немає',date:new Date().toLocaleString('uk-UA')})
+    .then(function(){lb.classList.remove('active');showToast('Надіслано!','Заявку збережено та відправлено на email','success');},
+    function(err){console.error('EmailJS:',err);lb.classList.remove('active');showToast('Збережено!','Заявка в адмін-панелі','warning');});
+  } catch(e) { lb.classList.remove('active'); showToast('Збережено!','Заявка в адмін-панелі','warning'); }
+  ['f-child','f-age','f-parent','f-phone','f-email','f-comment'].forEach(function(fid){var el=document.getElementById(fid);if(el)el.value='';});
+  document.getElementById('f-exp').value='none';
 }
 
+// ── CHART ──
 function buildIncomeChart() {
-  var el = document.getElementById('income-chart');
-  if (!el) return;
-  var months = ['Вер','Жов','Лис','Гру','Січ','Лют'];
-  var vals = [45, 52, 68, 71, 55, 63];
-  var max = Math.max.apply(null, vals);
-  el.innerHTML = '';
-  for (var i = 0; i < months.length; i++) {
-    var h = Math.round(vals[i] / max * 130);
-    var wrap = document.createElement('div');
-    wrap.className = 'chart-bar-wrap';
-    var bar = document.createElement('div');
-    bar.className = 'chart-bar-inner';
-    bar.style.height = h + 'px';
-    bar.title = vals[i] + ' тис. грн';
-    var lbl = document.createElement('div');
-    lbl.className = 'chart-bar-label';
-    lbl.textContent = months[i];
-    wrap.appendChild(bar);
-    wrap.appendChild(lbl);
-    el.appendChild(wrap);
+  var el=document.getElementById('income-chart'); if(!el) return;
+  var months=['Вер','Жов','Лис','Гру','Січ','Лют'], vals=[45,52,68,71,55,63];
+  var max=Math.max.apply(null,vals); el.innerHTML='';
+  for(var i=0;i<months.length;i++){
+    var h=Math.round(vals[i]/max*130);
+    var wrap=document.createElement('div'); wrap.className='chart-bar-wrap';
+    var bar=document.createElement('div'); bar.className='chart-bar-inner'; bar.style.height=h+'px'; bar.title=vals[i]+' тис. грн';
+    var lbl=document.createElement('div'); lbl.className='chart-bar-label'; lbl.textContent=months[i];
+    wrap.appendChild(bar); wrap.appendChild(lbl); el.appendChild(wrap);
   }
 }
 
-var playersList = ['Петренко Д.','Коваль М.','Мороз А.','Бондар Ю.','Лисенко В.','Кравець Р.','Павленко С.','Яременко І.'];
-
+// ── ATTENDANCE ──
+var playersList=['Петренко Д.','Коваль М.','Мороз А.','Бондар Ю.','Лисенко В.','Кравець Р.','Павленко С.','Яременко І.'];
 function buildAttendance() {
-  var grid = document.getElementById('attend-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  for (var i = 0; i < playersList.length; i++) {
-    var name = playersList[i];
-    var parts = name.split(' ');
-    var initials = parts.map(function(n) { return n[0]; }).join('');
-    var card = document.createElement('div');
-    card.className = 'attend-card';
-    var av = document.createElement('div');
-    av.className = 'attend-avatar';
-    av.textContent = initials;
-    var nm = document.createElement('div');
-    nm.className = 'attend-name';
-    nm.textContent = name;
-    var tog = document.createElement('div');
-    tog.className = 'attend-toggle on';
-    tog.id = 'at-' + i;
-    tog.onclick = function() { this.classList.toggle('on'); };
-    card.appendChild(av);
-    card.appendChild(nm);
-    card.appendChild(tog);
-    grid.appendChild(card);
+  var grid=document.getElementById('attend-grid'); if(!grid) return;
+  grid.innerHTML='';
+  for(var i=0;i<playersList.length;i++){
+    var name=playersList[i], parts=name.split(' ');
+    var initials=parts.map(function(n){return n[0];}).join('');
+    var card=document.createElement('div'); card.className='attend-card';
+    var av=document.createElement('div'); av.className='attend-avatar'; av.textContent=initials;
+    var nm=document.createElement('div'); nm.className='attend-name'; nm.textContent=name;
+    var tog=document.createElement('div'); tog.className='attend-toggle on'; tog.id='at-'+i;
+    tog.onclick=function(){this.classList.toggle('on');};
+    card.appendChild(av); card.appendChild(nm); card.appendChild(tog); grid.appendChild(card);
   }
 }
-
 function saveAttendance() {
-  var present = 0;
-  for (var i = 0; i < playersList.length; i++) {
-    var el = document.getElementById('at-' + i);
-    if (el && el.classList.contains('on')) present++;
-  }
-  showToast('Збережено', 'Присутніх: ' + present + ' з ' + playersList.length, 'success');
+  var present=0;
+  for(var i=0;i<playersList.length;i++){var el=document.getElementById('at-'+i);if(el&&el.classList.contains('on'))present++;}
+  showToast('Збережено','Присутніх: '+present+' з '+playersList.length,'success');
 }
-if (typeof emailjs !== 'undefined') {
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-}
-document.getElementById('login-modal').addEventListener('click', function(e) {
-  if (e.target === this) closeLogin();
-});
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && document.getElementById('login-modal').classList.contains('active')) {
-    doLogin();
-  }
+// ── FILTER GROUPS ──
+function filterGroups(age, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');}); btn.classList.add('active');
+  document.querySelectorAll('.group-card').forEach(function(c){c.style.display=(age==='all'||c.dataset.age===age)?'block':'none';});
+}
+
+// ── CLOSE ON OVERLAY CLICK ──
+document.querySelectorAll('.modal-overlay').forEach(function(m){
+  m.addEventListener('click', function(e){ if(e.target===this) this.classList.remove('active'); });
+});
+document.addEventListener('keydown', function(e){
+  if(e.key==='Enter'&&document.getElementById('login-modal').classList.contains('active')) doLogin();
+  if(e.key==='Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m){m.classList.remove('active');});
 });
 </script>
 </body>
